@@ -10,5 +10,5 @@ WORKDIR /code
 # RUN pip install -r requirements.txt
 # COPY spiders.py /usr/local/lib/python3.5/site-packages/scrapy_redis
 
-ENTRYPOINT ["python"]
-CMD ["run_spider.py", ]
+
+CMD python run_spider.py
