@@ -27,6 +27,7 @@ class Spider(RedisCrawlSpider):
     rules = (
         Rule(LinkExtractor(allow=r'https://www\.pornhub\.com/video\?.+?page.+?'), callback='parse_ph_key', follow=True),
         Rule(LinkExtractor(allow=r'https://www\.pornhub\.com/embed/.+?'), callback='parse_ph_info'),
+        Rule(LinkExtractor(allow=r'https://www\.pornhub\.com/.+?'), callback='parse_ph_key', follow=True),
     )
 
     def parse_ph_key(self,response):
