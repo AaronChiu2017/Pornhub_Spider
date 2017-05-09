@@ -9,6 +9,7 @@ COPY . /code
 WORKDIR /code
 # RUN pip install -r requirements.txt
 # COPY spiders.py /usr/local/lib/python3.5/site-packages/scrapy_redis
+ENTRYPOINT ["scrapy"]
+CMD ["crawl", "pornHubSpider"]
 
-
-CMD python run_spider.py
+#CMD scrapy crawl pornHubSpider 
