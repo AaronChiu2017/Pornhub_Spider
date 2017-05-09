@@ -14,6 +14,7 @@ Python2.7
 
 数据库：Redis，Mongodb
 
++ 需要在settings中修改redis_url和Mongodb_uri
 + Redis用于存储Requests队列和去重队列，供分布式爬虫食用
 + Mongodb用于存储item（视频相关信息）
 + start_requests由redis_key替换
