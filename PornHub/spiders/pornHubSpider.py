@@ -27,18 +27,22 @@ class Spider(RedisCrawlSpider):
     rules = (
         Rule(LinkExtractor(allow=r'https://www\.pornhub\.com/video\?.+?page.+?'), callback='parse_ph_key', follow=True),
         Rule(LinkExtractor(allow=r'https://www\.pornhub\.com/embed/.+?'), callback='parse_ph_info'),
-        Rule(LinkExtractor(allow=r'https://www\.pornhub\.com/.+?'), callback='parse_ph_key', follow=True),
+        Rule(LinkExtractor(allow=r'https://www\.pornhub\.com'), callback='parse_ph_key', follow=True),
+        Rule(LinkExtractor(allow=r'https://www\.pornhub\.com\recommended'), callback='parse_ph_key', follow=True),
+        Rule(LinkExtractor(allow=r'https://www\.pornhub\.com\video\?o=ht'), callback='parse_ph_key', follow=True),
+        Rule(LinkExtractor(allow=r'https://www\.pornhub\.com\video\?o=mv'), callback='parse_ph_key', follow=True),
+        Rule(LinkExtractor(allow=r'https://www\.pornhub\.com\video\?o=tr'), callback='parse_ph_key', follow=True),
     )
 
     def parse_ph_key(self,response):
         selector = Selector(response)
         logging.debug('request url:------>' + response.url)
         # logging.info(selector)
-        divs = selector.xpath('//a[@title]')
-        for div in divs:
-            s = div.extract()
-            if 'viewkey' in s :
-                viewkey = re.findall(r'viewkey=(ph.+?)"', s)
+        lis = selector.xpath('//li[@_vkey]')
+        for li in lis:
+            s = li.extract()
+            if '_vkey' in s :
+                viewkey = re.findall(r'_key="(.+?)"', s)
                 if viewkey:
                     print viewkey[0]
                     yield Request(url='https://www.pornhub.com/embed/%s' % viewkey[0],callback = self.parse_ph_info, priority=100)

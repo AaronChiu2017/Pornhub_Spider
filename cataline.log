@@ -1,0 +1,27 @@
+Wed, 10 May 2017 10:07:18 log.py[line:127] INFO Scrapy 1.1.1 started (bot: PornHub)
+Wed, 10 May 2017 10:07:18 log.py[line:130] INFO Overridden settings: {'NEWSPIDER_MODULE': 'PornHub.spiders', 'ROBOTSTXT_OBEY': True, 'DUPEFILTER_CLASS': 'scrapy_redis.dupefilter.RFPDupeFilter', 'CONCURRENT_REQUESTS': 20, 'BOT_NAME': 'PornHub', 'SPIDER_MODULES': ['PornHub.spiders'], 'SCHEDULER': 'scrapy_redis.scheduler.Scheduler', 'REDIRECT_ENABLED': False, 'DOWNLOAD_DELAY': 1}
+Wed, 10 May 2017 10:07:19 middleware.py[line:53] INFO Enabled extensions:
+['scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats']
+Wed, 10 May 2017 10:07:19 spiders.py[line:68] INFO Reading start URLs from redis key 'pornHubSpider:start_urls' (batch size: 20, encoding: utf-8
+Wed, 10 May 2017 10:07:20 middleware.py[line:53] INFO Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'PornHub.middlewares.UserAgentMiddleware',
+ 'PornHub.middlewares.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.chunked.ChunkedTransferMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+Wed, 10 May 2017 10:07:20 middleware.py[line:53] INFO Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']

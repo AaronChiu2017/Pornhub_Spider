@@ -12,7 +12,7 @@ from .settings import MONGODB_URI
 class PornhubMongoDBPipeline(object):
     def __init__(self):
         clinet = pymongo.MongoClient(MONGODB_URI)
-        db = clinet["PornHub"]
+        db = clinet["PornHub1"]
         self.PhRes = db["PhRes"]
 
     def process_item(self, item, spider):
